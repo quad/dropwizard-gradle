@@ -1,7 +1,4 @@
 apply plugin: 'java'
-apply plugin: 'application'
-
-mainClassName = 'com.example.helloworld.HelloWorldService'
 
 repositories {
     mavenCentral()
@@ -9,14 +6,11 @@ repositories {
 
 dependencies {
     compile group: 'com.yammer.dropwizard', name: 'dropwizard-core', version: '0.5.1'
-    compile module("org.eclipse.jetty:jetty-server:8.1.5.v20120716") {
-        dependencies(
-                "org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016@jar",
-                "org.eclipse.jetty:jetty-continuation:8.1.5.v20120716",
-                "org.eclipse.jetty:jetty-http:8.1.5.v20120716"
-                )
-    }
 }
+
+apply plugin: 'application'
+
+mainClassName = 'com.example.helloworld.HelloWorldService'
 
 run {
     args 'server', 'hello-world.yml'
